@@ -1,0 +1,60 @@
+@{
+    ViewData["Title"] = "Welcome";
+}
+
+<div class="container">
+    <div style="padding-top: 7%">
+        <h2 style="text-align: center">ABC ATM | Get money and check balance.</h2>
+    </div>
+    @if (TempData["Response"] != null)
+    {
+        <div class="alert alert-success">
+            @TempData["Response"].ToString()
+        </div>
+    }
+    <hr/>
+    <div style="text-align: center">
+        <div id="response" style="width: 30%; margin: auto">
+
+        </div> <br/>
+        <h3>Please Insert your card</h3><br/>
+        <div class="form-group">
+            <div align="center">
+                @Html.TextBox("CardNumber", null, new {@id = "CardNumber", @class = "form-control", placeholder = "Enter card number"})
+                <br/>
+            </div>
+        </div>
+        <div class="form-group">
+            <div align="center">
+                @Html.TextBox("CardPin", null, new {@id = "CardPin", @class = "form-control", placeholder = "Enter card pin", type = "password", maxlength = "4"})
+                <br/>
+                <button id="login" class="btn btn-default form-control" style="width: 24.5%">Proceed</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="modal fade" tabindex="-1" role="dialog" id="Validator">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Alert</h4>
+            </div>
+            <div class="modal-body">
+                <h5>All fields are required.</h5>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    <script src="~/js/home.js"></script>
+}
+

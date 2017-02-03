@@ -1,0 +1,53 @@
+﻿@using Microsoft.AspNetCore.Http
+
+@{
+    ViewData["Title"] = "Task";
+}
+
+<div class="container">
+    <input type="hidden" id="token" value="@Context.Session.GetString("Token")"/>
+    <div style="padding-top: 7%">
+        <h2 style="text-align: center">ABC ATM | Get money and check balance.</h2>
+    </div>
+    <hr/>
+
+    <div style="text-align: center">
+        <div id="response" style="width: 50%; margin: auto">
+
+        </div> <br/>
+        <h3>Choose an Operation</h3><br/>
+        <div class="" style="width: 30%" id="task">
+            <a href="#" class="arrowlink" id="getBalance">Check Balance</a><br/>
+            <a href="/Task/GetCash" class="arrowlink">Get Cash</a>
+        </div>
+        <div class="" style="width: 30%" id="afterTask" hidden="hidden">
+            <a href="/" class="arrowlink" id="getBalance">New Transaction</a><br/>
+            <a href="/Task/TakeCard" class="arrowlink">Eject Card</a>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="modal fade" tabindex="-1" role="dialog" id="Validator">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Error</h4>
+            </div>
+            <div class="modal-body">
+                <h5>Session Expired.</h5>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    <script src="~/js/task.js"></script>
+}
+
