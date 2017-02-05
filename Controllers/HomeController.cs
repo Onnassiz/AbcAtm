@@ -7,6 +7,7 @@ namespace AbcAtm.Controllers
     {
         public IActionResult Index()
         {
+            ViewBag.Name = "Hello";
             HttpContext.Session.Remove("Token");
             return View();
         }
